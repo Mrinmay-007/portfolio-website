@@ -113,12 +113,10 @@
 
 // export default RoadmapRow;
 
-
 import React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Calendar, School, Award } from "lucide-react"; // icons
+import { BookOpen, Calendar, School, Award } from "lucide-react";
 
-// --- Roadmap Row (responsive) ---
 const RoadmapRow = ({ left, right }) => {
   const renderCard = (item) => (
     <div className="bg-[#111827] border border-gray-700/50 rounded-2xl p-6 shadow-lg w-full md:w-96">
@@ -184,7 +182,7 @@ const RoadmapRow = ({ left, right }) => {
   return (
     <div className="relative flex flex-col md:flex-row w-full min-h-[280px]">
       {/* Timeline line */}
-      <div className="absolute top-0 left-6 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gray-600 h-full"></div>
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 bg-gray-600 h-full"></div>
 
       {/* Left card */}
       {left && (
@@ -193,13 +191,12 @@ const RoadmapRow = ({ left, right }) => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="relative w-full md:w-1/2 flex md:justify-end pr-0 md:pr-16 mb-12 md:mb-0"
+          className="relative w-full md:w-1/2 flex md:justify-end md:pr-16 mb-12 md:mb-0"
         >
-          {/* Connector */}
-          <div className="absolute top-1/2 md:right-0 left-0 md:left-auto flex items-center">
-            <div className="hidden md:block w-12 h-0.5 bg-gray-500"></div>
+          {/* Connector (only desktop) */}
+          <div className="hidden md:flex absolute top-1/2 right-0 items-center">
+            <div className="w-12 h-0.5 bg-gray-500"></div>
             <div className="w-4 h-4 rounded-full bg-cyan-500 border-4 border-[#0B1120]"></div>
-            <div className="block md:hidden w-8 h-0.5 bg-gray-500 ml-4"></div>
           </div>
           {renderCard(left)}
         </motion.div>
@@ -212,12 +209,12 @@ const RoadmapRow = ({ left, right }) => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="relative w-full md:w-1/2 flex md:justify-start pl-0 md:pl-16"
+          className="relative w-full md:w-1/2 flex md:justify-start md:pl-16"
         >
-          {/* Connector */}
-          <div className="absolute top-1/2 md:left-0 left-0 flex items-center">
+          {/* Connector (only desktop) */}
+          <div className="hidden md:flex absolute top-1/2 left-0 items-center">
             <div className="w-4 h-4 rounded-full bg-green-500 border-4 border-[#0B1120]"></div>
-            <div className="hidden md:block w-12 h-0.5 bg-gray-500"></div>
+            <div className="w-12 h-0.5 bg-gray-500"></div>
           </div>
           {renderCard(right)}
         </motion.div>
