@@ -3,8 +3,8 @@ import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa6";
 
 export default function Contact() {
-    // const API_BASE = import.meta.env.VITE_API_URL;
-    const API_BASE = "https://porfoli-backend.onrender.com";
+  // const API_BASE = import.meta.env.VITE_API_URL;
+  const API_BASE = "https://porfoli-backend.onrender.com";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -79,26 +79,23 @@ export default function Contact() {
               </div>
             </div>
 
-        
             {/* LinkedIn */}
-<div className="flex items-center space-x-4">
-  <div className="p-3 bg-purple-700/20 rounded-xl">
-    <FaLinkedinIn className="text-[#5aa2ea] text-2xl" />
-  </div>
-  <div>
-    <h4 className="text-lg font-semibold">LinkedIn</h4>
-    <a
-      href="https://www.linkedin.com/in/mrinmay-das-868793280"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-gray-400 hover:underline"
-    >
-      mrinmay-das
-    </a>
-  </div>
-</div>
-
-
+            <div className="flex items-center space-x-4">
+              <div className="p-3 bg-purple-700/20 rounded-xl">
+                <FaLinkedinIn className="text-[#5aa2ea] text-2xl" />
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold">LinkedIn</h4>
+                <a
+                  href="https://www.linkedin.com/in/mrinmay-das-868793280"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:underline"
+                >
+                  mrinmay-das
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -154,7 +151,6 @@ export default function Contact() {
               rows="5"
               className="w-full bg-[#0f172a] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             ></textarea>
-          
 
             {/* File Upload */}
             <div>
