@@ -38,7 +38,7 @@ export default function PythonCodeBlock  () {
                 </div>
                 <div className="flex items-center gap-2 text-gray-400 text-sm">
                      <SiPython className="text-yellow-400" />
-                    <span>About.py</span>
+                    <span>Profile.py</span>
                 </div>
                  {/* Empty div for balance */}
                 <div className="w-16"></div>

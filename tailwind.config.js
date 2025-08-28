@@ -25,3 +25,30 @@ module.exports = {
   },
   plugins: [],
 }
+
+// /** @type {import('tailwindcss').Config} */
+// module.exports = {
+//   content: [
+//     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+//   ],
+//   theme: {
+//     extend: {
+//       keyframes: {
+//         // A simpler, more robust keyframe
+//         textSlide: {
+//           '0%, 20%': {
+//             transform: 'translateY(0%)',
+//           },
+//           '80%, 100%': {
+//             transform: 'translateY(-50%)',
+//           },
+//         },
+//       },
+//       animation: {
+//         // We'll use this class name in the JSX
+//         'text-slide': 'textSlide 6s ease-in-out infinite alternate',
+//       },
+//     },
+//   },
+//   plugins: [],
+// };
