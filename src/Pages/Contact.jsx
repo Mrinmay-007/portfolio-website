@@ -25,35 +25,40 @@ export default function Contact() {
     }
   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setLoading(true);
-//     setResponseMsg("");
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   setLoading(true);
+//   setResponseMsg("");
 
-//     const data = new FormData();
-//     data.append("name", formData.name);
-//     data.append("email", formData.email);
-//     data.append("subject", formData.subject);
-//     data.append("message", formData.message);
-//     if (formData.file) {
-//       data.append("file", formData.file);
+//   const data = new FormData();
+//   data.append("name", formData.name);
+//   data.append("email", formData.email);
+//   data.append("subject", formData.subject);
+//   data.append("message", formData.message);
+//   if (formData.file) {
+//     data.append("file", formData.file);
+//   }
+
+//   try {
+//     // ✅ match FastAPI route exactly
+//     const res = await fetch(`${API_BASE}/contact/`, {
+//       method: "POST",
+//       body: data,
+//     });
+
+//     if (!res.ok) {
+//       throw new Error(`HTTP error! status: ${res.status}`);
 //     }
 
-//     try {
-//       const res = await fetch(`${API_BASE}/contact/`, {
-//         method: "POST",
-//         body: data,
-//       });
-
-//       const result = await res.json();
-//       setResponseMsg(result.message || "Something went wrong!");
-//     } catch (error) {
-//       console.error(error);
-//       setResponseMsg("❌ Failed to send message. Try again.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+//     const result = await res.json();
+//     setResponseMsg(result.message || "Something went wrong!");
+//   } catch (error) {
+//     console.error("❌ Error submitting form:", error);
+//     setResponseMsg("❌ Failed to send message. Try again.");
+//   } finally {
+//     setLoading(false);
+//   }
+// };
 const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
@@ -69,7 +74,6 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    // ✅ match FastAPI route exactly
     const res = await fetch(`${API_BASE}/contact/`, {
       method: "POST",
       body: data,
@@ -81,13 +85,23 @@ const handleSubmit = async (e) => {
 
     const result = await res.json();
     setResponseMsg(result.message || "Something went wrong!");
+
+    // ✅ Clear form after success
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      file: null,
+    });
   } catch (error) {
-    // console.error("❌ Error submitting form:", error);
-    // setResponseMsg("❌ Failed to send message. Try again.");
+    console.error("❌ Error submitting form:", error);
+    setResponseMsg("❌ Failed to send message. Try again.");
   } finally {
     setLoading(false);
   }
 };
+
 
 
   return (
@@ -217,7 +231,7 @@ const handleSubmit = async (e) => {
               disabled={loading}
               className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center"
             >
-              {loading ? "Sending..." : "Send Message ✈"}
+              {loading ? "Sending..." : "Send Message 📩"}
             </button>
           </form>
         </div>
