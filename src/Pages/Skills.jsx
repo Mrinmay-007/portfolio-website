@@ -1,8 +1,7 @@
 // src/pages/Skill.js
 
 import React from "react";
-// Link is not used, can be removed if you don't need it.
-// import { Link } from "react-router-dom";
+
 import SkillsGrid from "../components/Skill/card";
 import MySkillsHeading from "../components/Skill/MySkillsHeading";
 export default function Skill() {

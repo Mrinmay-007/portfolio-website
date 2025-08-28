@@ -25,40 +25,7 @@ export default function Contact() {
     }
   };
 
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   setLoading(true);
-//   setResponseMsg("");
 
-//   const data = new FormData();
-//   data.append("name", formData.name);
-//   data.append("email", formData.email);
-//   data.append("subject", formData.subject);
-//   data.append("message", formData.message);
-//   if (formData.file) {
-//     data.append("file", formData.file);
-//   }
-
-//   try {
-//     // ✅ match FastAPI route exactly
-//     const res = await fetch(`${API_BASE}/contact/`, {
-//       method: "POST",
-//       body: data,
-//     });
-
-//     if (!res.ok) {
-//       throw new Error(`HTTP error! status: ${res.status}`);
-//     }
-
-//     const result = await res.json();
-//     setResponseMsg(result.message || "Something went wrong!");
-//   } catch (error) {
-//     console.error("❌ Error submitting form:", error);
-//     setResponseMsg("❌ Failed to send message. Try again.");
-//   } finally {
-//     setLoading(false);
-//   }
-// };
 const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
