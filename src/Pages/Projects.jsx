@@ -52,7 +52,7 @@ function Roadmap() {
         image: project8,
         title: "AttendX",
         description:
-          "A sleek and intuitive application for managing attendance, designed with a focus on user experience and efficiency.",
+          "A web application to manage college attendance system , built with React ,FastAPI and MySQL.",
         codeLink: "https://github.com/Mrinmay-007/Attendance_Manage.git",
         liveLink: "https://attendance-manage-rdyu.vercel.app",
         cardStyle: cardStyle1, // <-- Assign style object here
@@ -61,7 +61,7 @@ function Roadmap() {
         image: project7,
         title: "Football Analysis",
         description:
-          "An in-depth analysis of football match data, visualizing key metrics and player performance with interactive charts.",
+          "Football analysis using OpenCV and Python to track player movements and analyze game strategies." ,
         codeLink: "https://github.com/Mrinmay-007/Football_Analysis.git",
         liveLink: "",
         cardStyle: cardStyle2, // <-- Assign style object here
@@ -72,7 +72,8 @@ function Roadmap() {
       left: {
         image: project6, // Replace with your image
         title: "Sentiment Analysis",
-        description: "Describe your awesome project here.",
+        description: 
+        "A web application that analyzes the sentiment of user-input text using machine learning techniques.",
         codeLink: "https://github.com/Mrinmay-007/sentiment_analysis.git",
         liveLink: "",
         cardStyle: cardStyle2, // <-- You can reuse or create new styles
@@ -81,7 +82,7 @@ function Roadmap() {
         image: project5, // Replace with your image
         title: "SMS Spam Detection",
         description:
-          "The second iteration of my personal portfolio, built with cutting-edge web technologies.",
+          "A web application that classifies SMS messages as spam or ham using machine learning algorithms.",
         codeLink: "https://github.com/Mrinmay-007/email_spam.git",
         liveLink: "https://email-spam-classifier-a9kz.onrender.com/",
         cardStyle: cardStyle1, // <-- Mix and match styles
@@ -93,7 +94,7 @@ function Roadmap() {
       left: {
         image: project4, // Replace with your image
         title: "Summer Olympic Analysis",
-        description: "Describe your awesome project here.",
+        description: "A web application that analyzes the performance of athletes in the Summer Olympics.",
         codeLink: "https://github.com/Mrinmay-007/Summer_Olympics.git",
         liveLink: "https://summerolympiscsproject.streamlit.app/",
         cardStyle: cardStyle1, // <-- You can reuse or create new styles
@@ -102,7 +103,7 @@ function Roadmap() {
         image: project3, // Replace with your image
         title: "IPL Analysis",
         description:
-          "The second iteration of my personal portfolio, built with cutting-edge web technologies.",
+          "A web application that provides insights and analysis of IPL cricket matches using historical data.",
         codeLink: "https://github.com/Mrinmay-007/IPL.git",
         liveLink: "https://iplanalysisproject.streamlit.app/",
         cardStyle: cardStyle2, // <-- Mix and match styles
@@ -113,7 +114,7 @@ function Roadmap() {
       left: {
         image: project2, // Replace with your image
         title: "JARVIS",
-        description: "Describe your awesome project here.",
+        description: "A voice-activated personal assistant that can perform various tasks using Python and speech recognition.",
         codeLink: "https://github.com/Mrinmay-007/jarvis.git",
         liveLink: "",
         cardStyle: cardStyle2, // <-- You can reuse or create new styles
@@ -122,7 +123,7 @@ function Roadmap() {
         image: project1, // Replace with your image
         title: "Edu-For-You",
         description:
-          "The second iteration of my personal portfolio, built with cutting-edge web technologies.",
+          "A web application that connects students with tutors for personalized learning experiences.",
         codeLink: "https://github.com/Mrinmay-007/EduForYou.git",
         liveLink: "https://edu-for-you-37ju.vercel.app/",
         cardStyle: cardStyle1, // <-- Mix and match styles

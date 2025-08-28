@@ -287,7 +287,7 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="text-gray-400 mb-8 text-sm md:text-base">
-            Have a question or want to work together? Drop us a message!
+            Have a question or find any issues ? Drop us a message!
           </p>
 
           <div className="space-y-6">

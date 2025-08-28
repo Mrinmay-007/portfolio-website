@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar container */}
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4">
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-2">
         <div className="bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 p-0.5 rounded-full">
           <div className="bg-[#182232] rounded-full flex items-center justify-between p-2 relative">
             {/* Desktop & Tablet Links */}

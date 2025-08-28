@@ -15,7 +15,8 @@ export default function Certificate() {
       company: "IBM",
       duration: "Jan - Mar 2023",
       description:
-        "Worked on developing and customizing WordPress websites for clients globally.",
+        "Introduction of Data Science concepts , techniques and use cases on various domains.",
+
       certLink: "https://drive.google.com/file/d/1x7mIZVCK4f0kZPFlCtNRl_bqSlbPYBHl/view?usp=drive_link",
     },
     {
@@ -24,7 +25,7 @@ export default function Certificate() {
       company: "IBM",
       duration: "Feb - Apr 2024",
       description:
-        "Worked on developing and customizing WordPress websites for clients globally.",
+        "Learned the fundamentals of frontend development, including HTML, CSS, and JavaScript.",
       certLink: "https://drive.google.com/file/d/1pnP6ZwXpgCfqoDWR9UxtGmYl2UsqyesG/view?usp=drive_link",
     },
     {
@@ -33,7 +34,7 @@ export default function Certificate() {
       company: "IBM",
       duration: "Feb - Apr 2024",
       description:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
+        "Gained hands-on experience in data analysis, visualization, and machine learning using Python.",
       certLink: "https://drive.google.com/file/d/12mTgvCPwn0iSE9NcKlaIVzaS-z2MESE-/view?usp=drive_link",
     },
      {
@@ -42,7 +43,7 @@ export default function Certificate() {
       company: "IBM SkillsBuild",
       duration: "Jun - Aug 2024",
       description:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
+        "Build a responsive web application 'Edu-For-You' ; using HTML, CSS, and JavaScript.",
       certLink: "https://drive.google.com/file/d/1TNX2pl9xUQd22IHGpSiDcPqLBBfdL3I4/view?usp=drive_link",
     },
   ];

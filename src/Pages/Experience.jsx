@@ -12,7 +12,7 @@ export default function App() {
       title: "Internship as Salesforce Developer",
       company: "SmartBridge",
       duration: "May - July 2025",
-      description: "Worked on developing and customizing WordPress websites for clients globally.",
+      description: "Worked on customizing Salesforce applications, developing Apex classes, and creating Visualforce pages to enhance user experience.",
       certLink: "https://drive.google.com/file/d/1HVGbjczE0VJM6GMCrM9C48YruJj0ZQ33/view?usp=drive_link"
     },
     {
@@ -20,7 +20,7 @@ export default function App() {
       title: "Internship in Data Science",
       company: "Pinnacle Labs",
       duration: "May - June 2025",
-      description: "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
+      description: "Assisted in data cleaning, exploratory data analysis, and building predictive models using Python and machine learning libraries.",
       certLink: "https://drive.google.com/file/d/1cXqVKDtkvve4QC2FjKx5nbzZfk7KAlfk/view?usp=drive_link"
     },
   ];
