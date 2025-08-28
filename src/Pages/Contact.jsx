@@ -82,8 +82,8 @@ const handleSubmit = async (e) => {
     const result = await res.json();
     setResponseMsg(result.message || "Something went wrong!");
   } catch (error) {
-    console.error("❌ Error submitting form:", error);
-    setResponseMsg("❌ Failed to send message. Try again.");
+    // console.error("❌ Error submitting form:", error);
+    // setResponseMsg("❌ Failed to send message. Try again.");
   } finally {
     setLoading(false);
   }
