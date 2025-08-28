@@ -9,7 +9,7 @@ export default function Home() {
   const roles = [
     "Full Stack Developer",
     "Data Science Enthusiast",
-    "UI/UX Designer",
+    "Python Developer",
   ];
 
   return (
