@@ -25,35 +25,70 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setResponseMsg("");
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+//     setResponseMsg("");
 
-    const data = new FormData();
-    data.append("name", formData.name);
-    data.append("email", formData.email);
-    data.append("subject", formData.subject);
-    data.append("message", formData.message);
-    if (formData.file) {
-      data.append("file", formData.file);
+//     const data = new FormData();
+//     data.append("name", formData.name);
+//     data.append("email", formData.email);
+//     data.append("subject", formData.subject);
+//     data.append("message", formData.message);
+//     if (formData.file) {
+//       data.append("file", formData.file);
+//     }
+
+//     try {
+//       const res = await fetch(`${API_BASE}/contact/`, {
+//         method: "POST",
+//         body: data,
+//       });
+
+//       const result = await res.json();
+//       setResponseMsg(result.message || "Something went wrong!");
+//     } catch (error) {
+//       console.error(error);
+//       setResponseMsg("❌ Failed to send message. Try again.");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setResponseMsg("");
+
+  const data = new FormData();
+  data.append("name", formData.name);
+  data.append("email", formData.email);
+  data.append("subject", formData.subject);
+  data.append("message", formData.message);
+  if (formData.file) {
+    data.append("file", formData.file);
+  }
+
+  try {
+    // ✅ match FastAPI route exactly
+    const res = await fetch(`${API_BASE}/contact/`, {
+      method: "POST",
+      body: data,
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
     }
 
-    try {
-      const res = await fetch(`${API_BASE}/contact/`, {
-        method: "POST",
-        body: data,
-      });
+    const result = await res.json();
+    setResponseMsg(result.message || "Something went wrong!");
+  } catch (error) {
+    console.error("❌ Error submitting form:", error);
+    setResponseMsg("❌ Failed to send message. Try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
-      const result = await res.json();
-      setResponseMsg(result.message || "Something went wrong!");
-    } catch (error) {
-      console.error(error);
-      setResponseMsg("❌ Failed to send message. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0f172a] flex items-center justify-center px-6 py-12">
