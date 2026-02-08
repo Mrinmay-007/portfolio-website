@@ -41,7 +41,7 @@ function Roadmap() {
         duration: "2022-2026",
         description:
           "Focused on Data science subjects with emphasis on practical laboratory work and projects.",
-        achievements: ["GPA : 7.3", "Department : CSBS"],
+        achievements: ["GPA : 7.9", "Department : CSBS"],
       },
     },
   ];
