@@ -75,7 +75,7 @@ function Roadmap() {
         description: 
         "A web application that analyzes the sentiment of user-input text using machine learning techniques.",
         codeLink: "https://github.com/Mrinmay-007/sentiment_analysis.git",
-        liveLink: "",
+        liveLink: "https://sentiment-analysis-frontend-bay.vercel.app/",
         cardStyle: cardStyle2, // <-- You can reuse or create new styles
       },
       right: {
