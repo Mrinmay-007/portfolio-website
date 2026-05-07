@@ -76,7 +76,7 @@ export default function Contact() {
           </p>
 
           <a
-            href="YOUR_GOOGLE_FORM_LINK"
+            href="https://forms.gle/e2u2tDe21rtRHQ9o9"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center text-sm md:text-base"
