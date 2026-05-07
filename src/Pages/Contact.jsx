@@ -113,97 +113,35 @@ export default function Contact() {
                 </a>
               </div>
             </div>
+            
           </div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className="bg-[#1e293b] p-6 sm:p-8 rounded-2xl shadow-lg">
-          {responseMsg && (
-            <p
-              className={`mb-4 text-center font-medium ${
-                responseMsg.startsWith("✅") ? "text-green-400" : "text-red-400"
-              }`}
-            >
-              {responseMsg}
-            </p>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full bg-[#0f172a] border border-gray-700 rounded-lg px-4 py-3 text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full bg-[#0f172a] border border-gray-700 rounded-lg px-4 py-3 text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="w-full bg-[#0f172a] border border-gray-700 rounded-lg px-4 py-3 text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows="5"
-              className="w-full bg-[#0f172a] border border-gray-700 rounded-lg px-4 py-3 text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500"
-            ></textarea>
-
-            {/* File Upload */}
-            <div>
-              <label className="block text-gray-300 font-medium mb-2 text-sm md:text-base">
-                Attachment (optional)
-              </label>
-              <div className="flex items-center">
-                <label
-                  htmlFor="file"
-                  className="flex items-center justify-center px-3 py-2 bg-[#313745] text-white rounded-lg cursor-pointer hover:bg-[#33405f] transition duration-200 text-sm md:text-base"
-                >
-                  📎 Choose File
-                </label>
-                <span className="ml-3 text-xs md:text-sm text-gray-400 truncate max-w-[160px] sm:max-w-xs">
-                  {formData.file ? formData.file.name : "No file chosen"}
-                </span>
-              </div>
-              <input
-                type="file"
-                id="file"
-                name="file"
-                onChange={handleChange}
-                className="hidden"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center text-sm md:text-base"
-            >
-              {loading ? "Sending..." : "Send Message 📩"}
-            </button>
-          </form>
+       {/* Right Section */}
+        <div className="bg-[#1e293b] p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col items-center justify-center text-center">
+          <div className="bg-purple-700/20 p-5 rounded-2xl mb-6">
+            <MdEmail className="text-purple-400 text-5xl" />
+          </div>
+        
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Contact Form
+          </h3>
+        
+          <p className="text-gray-400 text-sm md:text-base mb-8 max-w-md">
+            Click the button below to open the Google Form and send your message.
+          </p>
+        
+          <a
+            href="https://forms.gle/cZBLheTermEwuMTx8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center text-sm md:text-base"
+          >
+            Open Google Form 📩
+          </a>
         </div>
-      </div>
+        
     </div>
   );
 }
