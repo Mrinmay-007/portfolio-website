@@ -54,7 +54,7 @@ function Roadmap() {
         description:
           "A web application to manage college attendance system , built with React ,FastAPI and MySQL.",
         codeLink: "https://github.com/Mrinmay-007/attendance_manager.git",
-        liveLink: "https://attendance-manage-rdyu.vercel.app",
+        liveLink: "https://attendx-dev.vercel.app",
         cardStyle: cardStyle1, // <-- Assign style object here
       },
       right: {
