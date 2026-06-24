@@ -84,7 +84,7 @@ function Roadmap() {
         description:
           "A web application that classifies SMS messages as spam or ham using machine learning algorithms.",
         codeLink: "https://github.com/Mrinmay-007/email_spam.git",
-        liveLink: "https://email-spam-classifier-a9kz.onrender.com/",
+        liveLink: "https://sms-spam-detect.vercel.app",
         cardStyle: cardStyle1, // <-- Mix and match styles
       },
     },
