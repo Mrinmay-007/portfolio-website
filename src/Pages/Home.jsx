@@ -68,7 +68,7 @@ export default function Home() {
                     Learn More <ArrowRightIcon className="w-5 h-5" />
                   </a>
 
-                  <a href="https://drive.google.com/file/d/1qoF6Rw0mGdbYDOyNEzlwms5RRcoh8RAa/view?usp=sharing"
+                  <a href="https://drive.google.com/file/d/1Hk67RdAcz33OdJhWv-OOKIuAT0AbP4Jd/view?usp=drive_link"
                   target="_blank"
                     rel="noopener noreferrer"
                    className="aurora-button-secondary w-full sm:w-auto flex items-center justify-center gap-2">
