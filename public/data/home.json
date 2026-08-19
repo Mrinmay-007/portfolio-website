@@ -1,0 +1,49 @@
+{
+  "name": "Mrinmay Das",
+  "greeting": "Hello, I am",
+  "roles": [
+    "Full Stack Developer",
+    "Data Science Enthusiast",
+    "Python Developer"
+  ],
+  "profileImage": "/dp.png",
+  "buttons": {
+    "primary": {
+      "text": "Learn More",
+      "link": "https://github.com/Mrinmay-007"
+    },
+    "secondary": {
+      "text": "Get Resume",
+      "link": "https://drive.google.com/file/d/1Hk67RdAcz33OdJhWv-OOKIuAT0AbP4Jd/view?usp=drive_link"
+    }
+  },
+  "about": {
+    "heading": "About",
+    "highlightedWord": "Me",
+    "paragraphs": [
+      "Hi! \ud83d\udc4b   My name is Mrinmay Das. I\u2019m a passionate technology enthusiast and a B.Tech student of Academy Of Technology, with a strong interest in Data Science, Machine Learning, and Full-Stack Development. I love building innovative projects that combine programming, AI, and real-world applications.",
+      "Over time, I\u2019ve developed hands-on experience with Python, SQL, React.js, Flask, and FastAPI, and I enjoy exploring both backend and frontend development. I\u2019ve worked on projects ranging from AI-powered applications, predictive models, and web apps to automation tools."
+    ],
+    "objective": "To challenge myself in a new environment to learn, develop, and improve my skills through different projects, and try new things."
+  },
+  "codeBlock": {
+    "fileName": "Profile.py",
+    "name": "Mrinmay Das",
+    "title": "Full-Stack Python Developer | Data Science Enthusiast ",
+    "skills": [
+      "HTML", "CSS", "React",
+      "Python", "Fast API", "Flask",
+      "My SQL", "Machine Learning", "NLP", "CNN"
+    ],
+    "traits": {
+      "problem_solver": true,
+      "quick_learner": true,
+      "adaptability": true,
+      "time_management": true,
+      "team_management": true
+    },
+    "hireCriteria": {
+      "minSkills": 5
+    }
+  }
+}

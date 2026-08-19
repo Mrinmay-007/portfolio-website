@@ -1,0 +1,74 @@
+[
+  {
+    "left": {
+      "image": "/images/projects/attendance_manager.png",
+      "title": "AttendX",
+      "description": "A web application to manage college attendance system , built with React ,FastAPI and MySQL.",
+      "codeLink": "https://github.com/Mrinmay-007/attendance_manager.git",
+      "liveLink": "https://attendx-dev.vercel.app",
+      "cardStyle": "style1"
+    },
+    "right": {
+      "image": "/images/projects/football_analysis.png",
+      "title": "Football Analysis",
+      "description": "Football analysis using OpenCV and Python to track player movements and analyze game strategies.",
+      "codeLink": "https://github.com/Mrinmay-007/Football_Analysis.git",
+      "liveLink": "",
+      "cardStyle": "style2"
+    }
+  },
+  {
+    "left": {
+      "image": "/images/projects/sentiment-analysis.jpg",
+      "title": "Sentiment Analysis",
+      "description": "A web application that analyzes the sentiment of user-input text using machine learning techniques.",
+      "codeLink": "https://github.com/Mrinmay-007/sentiment_analysis.git",
+      "liveLink": "https://sentiment-analysis-frontend-bay.vercel.app/",
+      "cardStyle": "style2"
+    },
+    "right": {
+      "image": "/images/projects/sms_spam.png",
+      "title": "SMS Spam Detection",
+      "description": "A web application that classifies SMS messages as spam or ham using machine learning algorithms.",
+      "codeLink": "https://github.com/Mrinmay-007/email_spam.git",
+      "liveLink": "https://sms-spam-detect.vercel.app",
+      "cardStyle": "style1"
+    }
+  },
+  {
+    "left": {
+      "image": "/images/projects/olympic.png",
+      "title": "Summer Olympic Analysis",
+      "description": "A web application that analyzes the performance of athletes in the Summer Olympics.",
+      "codeLink": "https://github.com/Mrinmay-007/Summer_Olympics.git",
+      "liveLink": "https://summerolympiscsproject.streamlit.app/",
+      "cardStyle": "style1"
+    },
+    "right": {
+      "image": "/images/projects/ipl.png",
+      "title": "IPL Analysis",
+      "description": "A web application that provides insights and analysis of IPL cricket matches using historical data.",
+      "codeLink": "https://github.com/Mrinmay-007/IPL.git",
+      "liveLink": "https://iplanalysisproject.streamlit.app/",
+      "cardStyle": "style2"
+    }
+  },
+  {
+    "left": {
+      "image": "/images/projects/jarvis.png",
+      "title": "JARVIS",
+      "description": "A voice-activated personal assistant that can perform various tasks using Python and speech recognition.",
+      "codeLink": "https://github.com/Mrinmay-007/jarvis.git",
+      "liveLink": "",
+      "cardStyle": "style2"
+    },
+    "right": {
+      "image": "/images/projects/edu-for-you.png",
+      "title": "Edu-For-You",
+      "description": "A web application that connects students with tutors for personalized learning experiences.",
+      "codeLink": "https://github.com/Mrinmay-007/EduForYou.git",
+      "liveLink": "https://edu-for-you-37ju.vercel.app/",
+      "cardStyle": "style1"
+    }
+  }
+]

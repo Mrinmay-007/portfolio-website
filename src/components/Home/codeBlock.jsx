@@ -1,8 +1,5 @@
 import React from 'react';
-
-
 import { SiPython } from "react-icons/si";
-
 
 const CodeLine = ({ children, indent = 0 }) => {
     const indentStyle = { paddingLeft: `${indent * 1.5}rem` };
@@ -13,7 +10,19 @@ const CodeLine = ({ children, indent = 0 }) => {
     );
 };
 
-export default function PythonCodeBlock  () {
+// Renders as a fixed number of trait lines; keys/values come from data.traits
+const TraitLine = ({ label, value, variable, punctuation, operator, boolean }) => (
+    <>
+        <span className={variable}>self</span>
+        <span className={punctuation}>.</span>
+        {label}
+        <span className={operator}> = </span>
+        <span className={boolean}>{value ? "True" : "False"}</span>
+        <br />
+    </>
+);
+
+export default function PythonCodeBlock({ data }) {
     // Syntax highlighting classes for different token types
     const keyword = "text-pink-400";
     const variable = "text-sky-300";
@@ -25,6 +34,11 @@ export default function PythonCodeBlock  () {
     const comment = "text-gray-500";
     const punctuation = "text-gray-400";
     const operator = "text-pink-400";
+
+    if (!data) return null;
+
+    const { fileName, name, title, skills, traits, hireCriteria } = data;
+    const traitEntries = Object.entries(traits || {});
 
     return (
         // Main container for the code editor look
@@ -38,7 +52,7 @@ export default function PythonCodeBlock  () {
                 </div>
                 <div className="flex items-center gap-2 text-gray-400 text-sm">
                      <SiPython className="text-yellow-400" />
-                    <span>Profile.py</span>
+                    <span>{fileName}</span>
                 </div>
                  {/* Empty div for balance */}
                 <div className="w-16"></div>
@@ -54,68 +68,40 @@ export default function PythonCodeBlock  () {
                         <span className={keyword}>def</span> <span className={functionName}>__init__</span><span className={punctuation}>(</span><span className={variable}>self</span><span className={punctuation}>):</span>
                     </CodeLine>
                     <CodeLine indent={2}>
-                        <span className={variable}>self</span><span className={punctuation}>.</span>name <span className={operator}>=</span> <span className={string}>"Mrinmay Das"</span>
+                        <span className={variable}>self</span><span className={punctuation}>.</span>name <span className={operator}>=</span> <span className={string}>"{name}"</span>
                          <br />
-               
-                        <span className={variable}>self</span><span className={punctuation}>.</span>title <span className={operator}>=</span> <span className={string}>"Full-Stack Python Developer | Data Science Enthusiast "</span> 
+
+                        <span className={variable}>self</span><span className={punctuation}>.</span>title <span className={operator}>=</span> <span className={string}>"{title}"</span>
                         <br />
-                    
+
                         <span className={variable}>self</span><span className={punctuation}>.</span>skills <span className={operator}>=</span> <span className={punctuation}>[</span>
                     </CodeLine>
 
                     <CodeLine indent={3}>
-                        <span className={string}>'HTML'</span><span className={punctuation}>,</span> 
-                        <span className={string}>'CSS'</span><span className={punctuation}>,</span> 
-                        <span className={string}>'React'</span><span className={punctuation}>,</span> 
-                        <br />
-
-                        <span className={string}>'Python'</span><span className={punctuation}>,</span> 
-                        <span className={string}>'Fast API'</span><span className={punctuation}>,</span> 
-                        <span className={string}>'Flask'</span><span className={punctuation}>,</span>
-
-                        <br />
-                        <span className={string}>'My SQL'</span> <span className={punctuation}>,</span>
-                        <span className={string}>'Machine Learning'</span> <span className={punctuation}>,</span>
-                        <span className={string}>'NLP'</span> <span className={punctuation}>,</span>
-                        <span className={string}>'CNN'</span> <span className={punctuation}>,</span>
-    
+                        {skills.map((skill, idx) => (
+                            <React.Fragment key={idx}>
+                                <span className={string}>'{skill}'</span>
+                                {idx < skills.length - 1 && <span className={punctuation}>, </span>}
+                                {(idx + 1) % 3 === 0 && <br />}
+                            </React.Fragment>
+                        ))}
                     </CodeLine>
                     <CodeLine indent={2}><span className={punctuation}>]</span></CodeLine>
-                    
+
                     <CodeLine indent={2}>
-                        <span className={variable}>self</span>
-                        <span className={punctuation}>.</span>problem_solver
-                        <span className={operator}> = </span> 
-                        <span className={boolean}>True</span> 
-                        <br />
-                        
-                         <span className={variable}>self</span>
-                        <span className={punctuation}>.</span>quick_learner
-                        <span className={operator}> = </span> 
-                        <span className={boolean}>True</span> 
-                        <br />
-
-                          <span className={variable}>self</span>
-                        <span className={punctuation}>.</span>adaptability
-                        <span className={operator}> = </span> 
-                        <span className={boolean}>True</span> 
-                        <br />
-
-                          <span className={variable}>self</span>
-                        <span className={punctuation}>.</span>time_management
-                        <span className={operator}> = </span> 
-                        <span className={boolean}>True</span> 
-                        <br />
-
-                          <span className={variable}>self</span>
-                        <span className={punctuation}>.</span>team_management
-                        <span className={operator}> = </span> 
-                        <span className={boolean}>True</span> 
-                        <br />
-
-
+                        {traitEntries.map(([label, value]) => (
+                            <TraitLine
+                                key={label}
+                                label={label}
+                                value={value}
+                                variable={variable}
+                                punctuation={punctuation}
+                                operator={operator}
+                                boolean={boolean}
+                            />
+                        ))}
                     </CodeLine>
-                
+
                     <CodeLine>
                         <span className={punctuation}>&nbsp;</span>
                     </CodeLine>
@@ -124,31 +110,31 @@ export default function PythonCodeBlock  () {
                     </CodeLine>
 
                     <CodeLine indent={2}>
-                        <span className={comment}># A candidate is hireable if they meet the criteria</span> 
+                        <span className={comment}># A candidate is hireable if they meet the criteria</span>
                         <br />
                         <span className={keyword}>return</span> <span className={punctuation}>(</span>
                     </CodeLine>
                     <CodeLine indent={3}>
                         <span className={variable}>self</span>
                         <span className={punctuation}>.</span>
-                        hard_worker 
-                        <span className={keyword}>and</span> 
-                        <br />
- 
-                        <span className={variable}>self</span>
-                        <span className={punctuation}>.</span>
-                        problem_solver 
+                        hard_worker
                         <span className={keyword}>and</span>
                         <br />
-               
+
+                        <span className={variable}>self</span>
+                        <span className={punctuation}>.</span>
+                        problem_solver
+                        <span className={keyword}>and</span>
+                        <br />
+
                         <span className={keyword}>len</span>
                         <span className={punctuation}>(</span>
                         <span className={variable}>self</span>
                         <span className={punctuation}>.</span>
                         skills
-                        <span className={punctuation}>)</span> 
-                        <span className={operator}>&gt;=</span> 
-                        <span className={number}>5</span> 
+                        <span className={punctuation}>)</span>
+                        <span className={operator}>&gt;=</span>
+                        <span className={number}>{hireCriteria?.minSkills ?? 5}</span>
                     </CodeLine>
 
                     <CodeLine indent={2}><span className={punctuation}>)</span></CodeLine>
@@ -157,4 +143,3 @@ export default function PythonCodeBlock  () {
         </div>
     );
 };
-

@@ -1,0 +1,9 @@
+[
+  { "id": "home", "text": "Home", "icon": "home" },
+  { "id": "skills", "text": "Skills", "icon": "code" },
+  { "id": "certificate", "text": "Certificate", "icon": "certificate" },
+  { "id": "experience", "text": "Experience", "icon": "briefcase" },
+  { "id": "education", "text": "Education", "icon": "academic" },
+  { "id": "projects", "text": "Projects", "icon": "collection" },
+  { "id": "contact", "text": "Contact", "icon": "mail" }
+]

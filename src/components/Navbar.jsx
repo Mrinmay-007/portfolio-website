@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PiCertificateFill } from "react-icons/pi";
@@ -13,20 +11,27 @@ import {
   HiMenu,
   HiX,
 } from "react-icons/hi";
+import useJsonData from "../hooks/useJsonData";
 
-const navLinks = [
-  { id: "home", text: "Home", icon: <HiHome className="h-5 w-5" /> },
-  { id: "skills", text: "Skills", icon: <HiCode className="h-5 w-5" /> },
-  { id: "certificate", text: "Certificate", icon: <PiCertificateFill className="h-5 w-5" /> },
-  { id: "experience", text: "Experience", icon: <HiBriefcase className="h-5 w-5" /> },
-  { id: "education", text: "Education", icon: <HiAcademicCap className="h-5 w-5" /> },
-  { id: "projects", text: "Projects", icon: <HiCollection className="h-5 w-5" /> },
-  { id: "contact", text: "Contact", icon: <HiMail className="h-5 w-5" /> },
-];
+// Maps the icon "key" strings stored in public/data/navbar.json to the
+// actual icon components. To add a nav link, add a new entry here and
+// in the JSON file.
+const iconMap = {
+  home: <HiHome className="h-5 w-5" />,
+  code: <HiCode className="h-5 w-5" />,
+  certificate: <PiCertificateFill className="h-5 w-5" />,
+  briefcase: <HiBriefcase className="h-5 w-5" />,
+  academic: <HiAcademicCap className="h-5 w-5" />,
+  collection: <HiCollection className="h-5 w-5" />,
+  mail: <HiMail className="h-5 w-5" />,
+};
 
 const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { data: navLinks } = useJsonData("/data/navbar.json");
+
+  if (!navLinks) return null;
 
   return (
     <>
@@ -48,7 +53,7 @@ const Navbar = () => {
                           : "text-slate-300 hover:bg-slate-700/80 hover:text-white"
                       }`}
                     >
-                      {link.icon}
+                      {iconMap[link.icon]}
                       <span>{link.text}</span>
                     </Link>
                   </li>
@@ -100,7 +105,7 @@ const Navbar = () => {
                     : "text-slate-300 hover:bg-slate-700/80 hover:text-white"
                 }`}
               >
-                {link.icon}
+                {iconMap[link.icon]}
                 <span>{link.text}</span>
               </Link>
             );
@@ -120,4 +125,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Frontend Development",
+    "icon": "code",
+    "skills": [
+      { "icon": "html5", "label": "HTML5" },
+      { "icon": "css3", "label": "CSS3" },
+      { "icon": "tailwind", "label": "Tailwind CSS" },
+      { "icon": "javascript", "label": "JavaScript" },
+      { "icon": "react", "label": "React" }
+    ]
+  },
+  {
+    "title": "Backend Development",
+    "icon": "database",
+    "skills": [
+      { "icon": "python", "label": "Python" },
+      { "icon": "fastapi", "label": "FastAPI" },
+      { "icon": "flask", "label": "Flask" },
+      { "icon": "mysql", "label": "MySQL" },
+      { "icon": "restapi", "label": "Rest API" }
+    ]
+  },
+  {
+    "title": "MLOps & AI",
+    "icon": "brain",
+    "skills": [
+      { "icon": "numpy", "label": "NumPy" },
+      { "icon": "pandas", "label": "Pandas" },
+      { "icon": "scikitlearn", "label": "Scikit-learn" },
+      { "icon": "tensorflow", "label": "TensorFlow" },
+      { "icon": "dataviz", "label": "Data Visualization" },
+      { "icon": "streamlit", "label": "Streamlit" }
+    ]
+  },
+  {
+    "title": "Tools & Technologies",
+    "icon": "chip",
+    "skills": [
+      { "icon": "vscode", "label": "VS Code" },
+      { "icon": "jupyter", "label": "Jupyter" },
+      { "icon": "vercel", "label": "Vercel" },
+      { "icon": "render", "label": "Render" },
+      { "icon": "git", "label": "Git" },
+      { "icon": "github", "label": "GitHub" }
+    ]
+  }
+]

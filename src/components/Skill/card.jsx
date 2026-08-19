@@ -1,6 +1,4 @@
-
-
-
+import React from "react";
 import { FaCode, FaGithub, FaPython, FaGitAlt, FaReact } from "react-icons/fa6";
 import { FiDatabase } from "react-icons/fi";
 import { HiOutlineChip } from "react-icons/hi";
@@ -13,56 +11,43 @@ import { BiLogoFlask } from "react-icons/bi";
 import { LuBrainCircuit } from "react-icons/lu";
 import { MdOutlineDataThresholding } from "react-icons/md";
 import { motion } from "framer-motion";
+import useJsonData from "../../hooks/useJsonData";
+import DataStatus from "../DataStatus";
 
-const skillsData = [
-  {
-    title: "Frontend Development",
-    icon: <FaCode className="text-cyan-400" />,
-    skills: [
-      { icon: <BsFiletypeHtml className="text-red-500" />, label: "HTML5" },
-      { icon: <BsFiletypeCss className="text-blue-500" />, label: "CSS3" },
-      { icon: <RiTailwindCssFill className="text-sky-400" />, label: "Tailwind CSS" },
-      { icon: <BsFiletypeJs className="text-yellow-400" />, label: "JavaScript" },
-      { icon: <FaReact className="text-blue-400" />, label: "React" }
-    ]
-  },
-  {
-    title: "Backend Development",
-    icon: <FiDatabase className="text-green-400" />,
-    skills: [
-      { icon: <FaPython className="text-blue-400" />, label: "Python" },
-      { icon: <SiFastapi className="text-green-400" />, label: "FastAPI" },
-      { icon: <BiLogoFlask className="text-black-600" />, label: "Flask" },
-      { icon: <TbBrandMysql className="text-blue-400" />, label: "MySQL" },
-      { icon: <TbCloudDataConnection className="text-red-400" />, label: "Rest API" }
-    ]
-  },
-  {
-    title: "MLOps & AI",
-    icon: <LuBrainCircuit className="text-purple-400" />,
-    skills: [
-      { icon: <SiNumpy className="text-blue-400" />, label: "NumPy" },
-      { icon: <SiPandas className="text-orange-400" />, label: "Pandas" },
-      { icon: <SiScikitlearn className="text-orange-500" />, label: "Scikit-learn" },
-      { icon: <SiTensorflow className="text-orange-400" />, label: "TensorFlow" },
-      { icon: <MdOutlineDataThresholding className="text-green-400" />, label: "Data Visualization" },
-      { icon: <SiStreamlit className="text-red-500" />, label: "Streamlit" }
-    ]
-  },
-  {
-    title: "Tools & Technologies",
-    icon: <HiOutlineChip className="text-pink-400" />,
-    skills: [
-      { icon: <VscVscode className="text-blue-400" />, label: "VS Code" },
-      { icon: <SiJupyter className="text-red-400" />, label: "Jupyter" },
-      { icon: <RiVercelFill className="text-black-500" />, label: "Vercel" },
-      { icon: <SiRender className="text-gray-400" />, label: "Render" },
-      { icon: <FaGitAlt className="text-orange-400" />, label: "Git" },
-      { icon: <FaGithub className="text-gray-400" />, label: "GitHub" }
-    ]
-  },
-];
+// Maps the icon "key" strings stored in public/data/skills.json to the
+// actual icon components. To use a new icon: add it here, then reference
+// its key from the JSON file.
+const categoryIconMap = {
+  code: <FaCode className="text-cyan-400" />,
+  database: <FiDatabase className="text-green-400" />,
+  brain: <LuBrainCircuit className="text-purple-400" />,
+  chip: <HiOutlineChip className="text-pink-400" />,
+};
 
+const skillIconMap = {
+  html5: <BsFiletypeHtml className="text-red-500" />,
+  css3: <BsFiletypeCss className="text-blue-500" />,
+  tailwind: <RiTailwindCssFill className="text-sky-400" />,
+  javascript: <BsFiletypeJs className="text-yellow-400" />,
+  react: <FaReact className="text-blue-400" />,
+  python: <FaPython className="text-blue-400" />,
+  fastapi: <SiFastapi className="text-green-400" />,
+  flask: <BiLogoFlask className="text-black-600" />,
+  mysql: <TbBrandMysql className="text-blue-400" />,
+  restapi: <TbCloudDataConnection className="text-red-400" />,
+  numpy: <SiNumpy className="text-blue-400" />,
+  pandas: <SiPandas className="text-orange-400" />,
+  scikitlearn: <SiScikitlearn className="text-orange-500" />,
+  tensorflow: <SiTensorflow className="text-orange-400" />,
+  dataviz: <MdOutlineDataThresholding className="text-green-400" />,
+  streamlit: <SiStreamlit className="text-red-500" />,
+  vscode: <VscVscode className="text-blue-400" />,
+  jupyter: <SiJupyter className="text-red-400" />,
+  vercel: <RiVercelFill className="text-black-500" />,
+  render: <SiRender className="text-gray-400" />,
+  git: <FaGitAlt className="text-orange-400" />,
+  github: <FaGithub className="text-gray-400" />,
+};
 
 // --- Reusable Skill Tag ---
 const SkillTag = ({ skill }) => (
@@ -81,7 +66,7 @@ const SkillTag = ({ skill }) => (
     />
 
     {/* Inner Content */}
-    {skill.icon}
+    {skillIconMap[skill.icon]}
     <span className="relative">{skill.label}</span>
   </motion.div>
 );
@@ -105,7 +90,7 @@ const SkillCard = ({ title, icon, skills }) => (
         transition={{ type: "spring", stiffness: 200 }}
         className="text-4xl"
       >
-        {icon}
+        {categoryIconMap[icon]}
       </motion.div>
       <h3 className="text-2xl font-semibold text-gray-100">{title}</h3>
     </div>
@@ -127,22 +112,31 @@ const gridContainerVariants = {
 };
 
 // Skills Grid
-const SkillsGrid = () => (
-  <motion.div
-    variants={gridContainerVariants}
-    initial="hidden"
-    animate="visible"
-    className="grid grid-cols-1 md:grid-cols-2 gap-8"
-  >
-    {skillsData.map((category, index) => (
-      <SkillCard
-        key={index}
-        title={category.title}
-        icon={category.icon}
-        skills={category.skills}
-      />
-    ))}
-  </motion.div>
-);
+const SkillsGrid = () => {
+  const { data: skillsData, loading, error } = useJsonData("/data/skills.json");
+
+  return (
+    <>
+      <DataStatus loading={loading} error={error} label="skills" />
+      {skillsData && (
+        <motion.div
+          variants={gridContainerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          {skillsData.map((category, index) => (
+            <SkillCard
+              key={index}
+              title={category.title}
+              icon={category.icon}
+              skills={category.skills}
+            />
+          ))}
+        </motion.div>
+      )}
+    </>
+  );
+};
 
 export default SkillsGrid;

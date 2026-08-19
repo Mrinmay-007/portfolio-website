@@ -1,52 +1,10 @@
-
 import React from "react";
-import certificate1 from "../assets/certificate/certificate1.png";
-import certificate2 from "../assets/certificate/certificate2.png";
-import certificate3 from "../assets/certificate/certificate3.png";
-import certificate4 from "../assets/certificate/certificate4.jpg";
-
+import useJsonData from "../hooks/useJsonData";
+import DataStatus from "../components/DataStatus";
 import CertificateGrid from "../components/Certificate/certificateGrid.jsx";
 
 export default function Certificate() {
-  const experienceData = [
-    {
-      image: certificate1,
-      title: "Introduction to Data Science",
-      company: "IBM",
-      duration: "Jan - Mar 2023",
-      description:
-        "Introduction of Data Science concepts , techniques and use cases on various domains.",
-
-      certLink: "https://drive.google.com/file/d/1x7mIZVCK4f0kZPFlCtNRl_bqSlbPYBHl/view?usp=drive_link",
-    },
-    {
-      image: certificate2,
-      title: "Frontend Development",
-      company: "IBM",
-      duration: "Feb - Apr 2024",
-      description:
-        "Learned the fundamentals of frontend development, including HTML, CSS, and JavaScript.",
-      certLink: "https://drive.google.com/file/d/1pnP6ZwXpgCfqoDWR9UxtGmYl2UsqyesG/view?usp=drive_link",
-    },
-    {
-      image: certificate3,
-      title: "Data Science with Python",
-      company: "IBM",
-      duration: "Feb - Apr 2024",
-      description:
-        "Gained hands-on experience in data analysis, visualization, and machine learning using Python.",
-      certLink: "https://drive.google.com/file/d/12mTgvCPwn0iSE9NcKlaIVzaS-z2MESE-/view?usp=drive_link",
-    },
-     {
-      image: certificate4,
-      title: "Internship as Frontend Developer",
-      company: "IBM SkillsBuild",
-      duration: "Jun - Aug 2024",
-      description:
-        "Build a responsive web application 'Edu-For-You' ; using HTML, CSS, and JavaScript.",
-      certLink: "https://drive.google.com/file/d/1TNX2pl9xUQd22IHGpSiDcPqLBBfdL3I4/view?usp=drive_link",
-    },
-  ];
+  const { data: certificates, loading, error } = useJsonData("/data/certificates.json");
 
   return (
     <div
@@ -73,12 +31,16 @@ export default function Certificate() {
         <div className="mt-6 h-[2px] w-20 mx-auto bg-gradient-to-r from-cyan-300 via-purple-400 to-pink-400 rounded-full opacity-70"></div>
       </div>
 
+      <DataStatus loading={loading} error={error} label="certificates" />
+
       {/* Certificate Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full max-w-7xl">
-        {experienceData.map((exp, index) => (
-          <CertificateGrid key={index} {...exp} />
-        ))}
-      </div>
+      {certificates && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full max-w-7xl">
+          {certificates.map((exp, index) => (
+            <CertificateGrid key={index} {...exp} />
+          ))}
+        </div>
+      )}
       <br />
     </div>
   );

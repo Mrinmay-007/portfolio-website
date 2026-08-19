@@ -1,15 +1,22 @@
 import React from "react";
 import { ArrowRightIcon, ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import PythonCodeBlock from "../components/Home/codeBlock";
-import dp from "../assets/dp.png";
+import useJsonData from "../hooks/useJsonData";
+import DataStatus from "../components/DataStatus";
 import "../index.css";
 
 export default function Home() {
-  const roles = [
-    "Full Stack Developer",
-    "Data Science Enthusiast",
-    "Python Developer",
-  ];
+  const { data: home, loading, error } = useJsonData("/data/home.json");
+
+  if (loading || error) {
+    return (
+      <main className="bg-[#100c1c] font-inter text-gray-300 min-h-screen">
+        <DataStatus loading={loading} error={error} label="home content" />
+      </main>
+    );
+  }
+
+  const { name, greeting, roles, profileImage, buttons, about, codeBlock } = home;
 
   return (
     <main className="bg-[#100c1c] font-inter text-gray-300 overflow-x-hidden relative min-h-screen">
@@ -30,10 +37,10 @@ export default function Home() {
               {/* Intro Text */}
               <div className="flex flex-col gap-6 lg:gap-8 text-center lg:text-left">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-400">
-                  Hello, I am
+                  {greeting}
                 </h2>
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#35bd9d] to-[#2baecb] animate-text-shimmer">
-                  Mrinmay Das
+                  {name}
                 </h1>
 
                 {/* Animated Roles */}
@@ -60,26 +67,28 @@ export default function Home() {
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-4">
                   <a
-                    href="https://github.com/Mrinmay-007"
+                    href={buttons.primary.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="aurora-button w-full sm:w-auto flex items-center justify-center gap-2"
                   >
-                    Learn More <ArrowRightIcon className="w-5 h-5" />
+                    {buttons.primary.text} <ArrowRightIcon className="w-5 h-5" />
                   </a>
 
-                  <a href="https://drive.google.com/file/d/1Hk67RdAcz33OdJhWv-OOKIuAT0AbP4Jd/view?usp=drive_link"
-                  target="_blank"
+                  <a
+                    href={buttons.secondary.link}
+                    target="_blank"
                     rel="noopener noreferrer"
-                   className="aurora-button-secondary w-full sm:w-auto flex items-center justify-center gap-2">
-                    Get Resume <ArrowDownTrayIcon className="w-5 h-5" />
+                    className="aurora-button-secondary w-full sm:w-auto flex items-center justify-center gap-2"
+                  >
+                    {buttons.secondary.text} <ArrowDownTrayIcon className="w-5 h-5" />
                   </a>
                 </div>
               </div>
 
               {/* Code Block */}
               <div className="hidden lg:flex items-center justify-center">
-                <PythonCodeBlock />
+                <PythonCodeBlock data={codeBlock} />
               </div>
             </div>
           </div>
@@ -97,8 +106,8 @@ export default function Home() {
                 <div className="absolute w-[240px] h-[320px] sm:w-[280px] sm:h-[380px] md:w-[350px] md:h-[450px] bg-gradient-to-tr from-purple-500 via-pink-500 to-cyan-500 rounded-[50%] blur-2xl opacity-40 animate-blob transition-all duration-500 group-hover:opacity-60"></div>
                 <div className="relative w-[220px] h-[300px] sm:w-[260px] sm:h-[360px] md:w-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-105 aurora-border">
                   <img
-                    src={dp}
-                    alt="Profile pic of Mrinmay Das"
+                    src={profileImage}
+                    alt={`Profile pic of ${name}`}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -107,31 +116,24 @@ export default function Home() {
               {/* About Text */}
               <div className="space-y-6 bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 shadow-lg">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-                  About{" "}
+                  {about.heading}{" "}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#3bd6b2] to-[#2ebbdb]">
-                    Me
+                    {about.highlightedWord}
                   </span>
                 </h2>
                 <div className="space-y-3 text-gray-300 text-base md:text-lg">
-                  <p>
-                    Hi! 👋 {"  "}  My name is{" "}
-                    <span className="font-semibold text-[#4f96de]">
-                      Mrinmay Das
-                    </span>
-                    . I’m a passionate technology enthusiast and a B.Tech student of Academy Of Technology, with a strong interest in Data Science, Machine Learning, and Full-Stack Development. I love building innovative projects that combine programming, AI, and real-world applications.  
-                  </p>
+                  {about.paragraphs.map((para, index) => (
+                    <React.Fragment key={index}>
+                      <p>{para}</p>
+                      {index < about.paragraphs.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                   <br />
-                  <p className="font-light ">
-                    Over time, I’ve developed hands-on experience with Python, SQL, React.js, Flask, and FastAPI, and I enjoy exploring both backend and frontend development. I’ve worked on projects ranging from AI-powered applications, predictive models, and web apps to automation tools.
-                  </p>
-                  <br />
-              
                   <p>
                     <span className="font-semibold text-white">
                       My Objective:
                     </span>{" "}
-                    To challenge myself in a new environment to learn, develop,
-                    and improve my skills through different projects, and try new things.
+                    {about.objective}
                   </p>
                 </div>
               </div>

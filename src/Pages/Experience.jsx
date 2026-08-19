@@ -1,29 +1,10 @@
+import React from "react";
+import useJsonData from "../hooks/useJsonData";
+import DataStatus from "../components/DataStatus";
+import ExperienceCard from "../components/Experience/experienceCard";
 
-
-import React from 'react';
-import ExperienceCard from '../components/Experience/experienceCard';
-
-
-// --- Main App Component ---
 export default function App() {
-  const experienceData = [
-    {
-      
-      title: "Internship as Salesforce Developer",
-      company: "SmartBridge",
-      duration: "May - July 2025",
-      description: "Worked on customizing Salesforce applications, developing Apex classes, and creating Visualforce pages to enhance user experience.",
-      certLink: "https://drive.google.com/file/d/1HVGbjczE0VJM6GMCrM9C48YruJj0ZQ33/view?usp=drive_link"
-    },
-    {
-      
-      title: "Internship in Data Science",
-      company: "Pinnacle Labs",
-      duration: "May - June 2025",
-      description: "Assisted in data cleaning, exploratory data analysis, and building predictive models using Python and machine learning libraries.",
-      certLink: "https://drive.google.com/file/d/1cXqVKDtkvve4QC2FjKx5nbzZfk7KAlfk/view?usp=drive_link"
-    },
-  ];
+  const { data: experienceData, loading, error } = useJsonData("/data/experience.json");
 
   return (
     <div
@@ -47,12 +28,16 @@ export default function App() {
         <div className="mt-6 h-[2px] w-20 mx-auto bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 rounded-full opacity-70"></div>
       </div>
 
+      <DataStatus loading={loading} error={error} label="experience" />
+
       {/* Experience Cards */}
-      <div className="flex flex-wrap justify-center items-stretch gap-8 lg:gap-12">
-        {experienceData.map((exp, index) => (
-          <ExperienceCard key={index} {...exp} />
-        ))}
-      </div>
+      {experienceData && (
+        <div className="flex flex-wrap justify-center items-stretch gap-8 lg:gap-12">
+          {experienceData.map((exp, index) => (
+            <ExperienceCard key={index} {...exp} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

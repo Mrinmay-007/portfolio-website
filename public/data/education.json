@@ -1,0 +1,42 @@
+[
+  {
+    "left": {
+      "title": "Secondary Education  (WBBSE)",
+      "institution": "Mahesh Shri Ramakrishna Ashram",
+      "duration": "2010-2020",
+      "description": "Focused on fundamentals of science and arts subjects.",
+      "achievements": ["Percentage: 85% "],
+      "subjects": [
+        "Mathematics",
+        "Physical Science",
+        "Life Science",
+        "History",
+        "Geography",
+        "Bengali",
+        "English"
+      ]
+    },
+    "right": {
+      "title": "Higher Secondary Education  (WBCHSE)",
+      "institution": "Serampore Union Institution",
+      "duration": "2020-2022",
+      "description": "Focused on core science subjects with emphasis on practical laboratory work . ",
+      "achievements": ["Percentage: 79% ", "Subject: Science"],
+      "subjects": [
+        "Mathematics",
+        "Physics",
+        "Chemistry",
+        "Computer Applications"
+      ]
+    }
+  },
+  {
+    "left": {
+      "title": "Bachelor Of Technology ( B.Tech | MAKAUT )",
+      "institution": "Academy Of Technology",
+      "duration": "2022-2026",
+      "description": "Focused on Data science subjects with emphasis on practical laboratory work and projects.",
+      "achievements": ["GPA : 7.9", "Department : CSBS"]
+    }
+  }
+]
