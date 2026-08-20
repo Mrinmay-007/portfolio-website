@@ -14,7 +14,7 @@
     },
     "secondary": {
       "text": "Get Resume",
-      "link": "../../src/assets/resume/Resume_1.pdf"
+      "link": "/resume/resume_1.pdf"
     }
   },
   "about": {

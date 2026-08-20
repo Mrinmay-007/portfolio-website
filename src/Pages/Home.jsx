@@ -77,8 +77,7 @@ export default function Home() {
 
                   <a
                     href={buttons.secondary.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    download
                     className="aurora-button-secondary w-full sm:w-auto flex items-center justify-center gap-2"
                   >
                     {buttons.secondary.text} <ArrowDownTrayIcon className="w-5 h-5" />

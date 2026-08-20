@@ -1,0 +1,2 @@
+Put your resume PDF in this folder and name it "resume.pdf"
+(i.e. public/resume/resume.pdf), replacing this file.
